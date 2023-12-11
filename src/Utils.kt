@@ -19,3 +19,14 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
  * The cleaner shorthand for printing output.
  */
 fun Any?.println() = println(this)
+
+fun List<String>.rotate90Degrees(): List<String> {
+    val maxWidth = this.maxOfOrNull { it.length } ?: 0
+    val rotatedLines = (0 until maxWidth).map { col ->
+        this.reversed().map { line ->
+            line.getOrNull(col) ?: ' '
+        }.joinToString("")
+    }
+
+    return rotatedLines
+}
