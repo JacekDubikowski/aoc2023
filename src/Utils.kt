@@ -30,3 +30,19 @@ fun List<String>.rotate90Degrees(): List<String> {
 
     return rotatedLines
 }
+
+fun gcd(a: Long, b: Long): Long {
+    var temp: Long
+    var x = a
+    var y = b
+    while (y > 0) {
+        temp = y
+        y = x % y
+        x = temp
+    }
+    return x
+}
+
+fun lcm(a: Long, b: Long): Long {
+    return a * (b / gcd(a, b))
+}
